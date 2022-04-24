@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe 'weather Service' do
   it 'returns a faraday response', :vcr do
       denver = {:lat=>39.7392, :lon=>-104.9903}
-      #binding.pry
       response = WeatherService.get_weather(denver)
+      #binding.pry
       expect(response).to be_a(Hash)
   end
 
