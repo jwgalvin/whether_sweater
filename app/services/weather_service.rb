@@ -1,13 +1,15 @@
 class WeatherService
   class << self
     def get_weather(loc)
-      response = conn.get("/data/2.5/onecall?lat=#{loc.lat}&lon=#{coords.lon}&units=imperial")
+      #binding.pry
+      response = conn.get("/data/2.5/onecall?lat=#{loc[:lat]}&lon=#{loc[:lon]}&units=imperial")
+      parse_data(response)
     end
 
     private
 
     def conn
-      Farday.new(url: 'https://api.openweathermap.org') do |fard|
+      Faraday.new(url: 'https://api.openweathermap.org') do |fard|
         fard.params['appid'] = ENV['weather_key']
       end
     end
