@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Forecast Service' do
+RSpec.describe 'weather Service' do
   it 'returns a faraday response', :vcr do
       denver = {:lat=>39.7392, :lon=>-104.9903}
       #binding.pry
