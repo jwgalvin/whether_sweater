@@ -21,6 +21,9 @@ group :development, :test do
   gem 'simplecov'
   gem 'shoulda-matchers'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
