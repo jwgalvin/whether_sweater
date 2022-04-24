@@ -6,7 +6,7 @@ class MapquestService
     end
 
     def gps(location)
-      response = conn.get("/geocoding/v1/addres?location=#{location}")
+      response = conn.get("/geocoding/v1/address?location=#{location}")
       parse_data(response)
     end
 

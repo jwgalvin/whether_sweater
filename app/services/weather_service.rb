@@ -2,7 +2,7 @@ class WeatherService
   class << self
     def get_weather(loc)
       #binding.pry
-      response = conn.get("/data/2.5/onecall?lat=#{loc[:lat]}&lon=#{loc[:lon]}&units=imperial")
+      response = conn.get("/data/2.5/onecall?lat=#{loc.lat}&lon=#{loc.lon}&units=imperial")
       parse_data(response)
     end
 

@@ -1,8 +1,9 @@
 class MapquestFacade
   class << self
-    def coords(location)
+    def geocode(location)
       data = MapquestService.gps(location)
-      CoordPoro.new(data[:results])
+      #binding.pry
+      Coord.new(data[:results])
     end
 
     def route(address, end_address)
