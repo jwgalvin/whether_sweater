@@ -3,9 +3,6 @@ class YelpService
     def yelp_search(search, eta, location)
       response = conn.get("/v3/businesses/search?location=#{location}&open_at=#{eta}&term=#{search}") do |f|
         f.headers['Authorization'] = ENV['yelp_key']
-        # f.params['location'] = location
-        # f.params['open_at'] = eta
-        # f.params['term'] = search
       end
       parse_data(response)
     end
