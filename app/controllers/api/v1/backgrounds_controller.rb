@@ -3,7 +3,6 @@ class Api::V1::BackgroundsController < ApplicationController
 
   def index
     pic = BackgroundFacade.image_finder(@location)
-    #binding.pry
     render json: BackgroundsSerializer.one_image(pic, @location)
   end
 

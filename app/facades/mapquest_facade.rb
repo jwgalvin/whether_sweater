@@ -6,7 +6,7 @@ class MapquestFacade
       Coord.new(data[:results])
     end
 
-    def route(address, end_address)
+    def route(address, end_address, departure_time = Time.now)
       json = MapquestService.routing(address, end_address)
       route = Route.new(json[:route])
     end
