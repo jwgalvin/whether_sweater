@@ -60,7 +60,7 @@ RSpec.describe 'weather handles requests like a mofo' do
     get "/api/v1/forecast?location=denver,co"
     expect(response).to be_successful
     expect(response.status).to eq(200)
-    
+
   end
 
   it 'tests it is a poro at controller level', :vcr do

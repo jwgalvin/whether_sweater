@@ -13,6 +13,7 @@
 # it.
 #
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
+require 'shoulda/matchers'
 require 'webmock/rspec'
 WebMock.disable_net_connect!
 RSpec.configure do |config|

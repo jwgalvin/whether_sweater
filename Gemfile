@@ -8,13 +8,13 @@ gem 'puma', '~> 3.11'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'faraday'
+gem 'jsonapi-serializer'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
-  gem 'jsonapi-serializer'
   gem 'figaro'
   gem 'pry'
   gem 'faker'

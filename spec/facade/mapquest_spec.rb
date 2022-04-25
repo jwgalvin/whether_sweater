@@ -10,7 +10,6 @@ RSpec.describe MapquestFacade do
     start = 'denver, co'
     destination = 'ft.collins, co'
     trip = MapquestFacade.route(start, destination)
-    #binding.pry
     expect(trip).to be_a(Route)
     expect(trip.distance).to be_a(Float)
     expect(trip.eta).to be_a(String)

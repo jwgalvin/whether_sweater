@@ -1,5 +1,6 @@
 class WeatherSerializer
-  def self.weather(forecast)
+  class << self
+  def weather(forecast)
       { "data":
         {
           "id": nil,
@@ -43,3 +44,4 @@ class WeatherSerializer
       }
     end
   end
+end

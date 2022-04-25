@@ -11,7 +11,6 @@ class MapquestService
     end
 
     private
-
     def conn
       Faraday.new(url: "http://www.mapquestapi.com") do |fard|
        fard.params['key'] = ENV['mapquest_key']
