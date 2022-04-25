@@ -1,10 +1,11 @@
 class YelpService
   class << self
-    def yelp_search(search)
-      response = conn.get('/events/featured') do |f|
-        #f.params['query'] = search
+    def yelp_search(search, eta, location)
+      response = conn.get("/businesses/search?location=#{location}") do |f|
         f.headers['Authorization'] = ENV['yelp_key']
-                #['Authorization: Bearer'] =
+        # f.params['location'] = location
+        # f.params['open_at'] = eta
+        # f.params['term'] = search
       end
       parse_data(response)
     end
@@ -15,7 +16,7 @@ class YelpService
     end
 
     def parse_data(response)
-      #binding.pry
+      binding.pry
       data = JSON.parse(response.body, symbolize_names: true)
     end
 
