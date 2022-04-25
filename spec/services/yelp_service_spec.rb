@@ -9,11 +9,11 @@ RSpec.describe YelpService do
   it 'gets a reponse with data I need', :vcr do
 
     response = YelpService.yelp_search('fast food', Time.now.to_i, "denver")
-    binding.pry
+    #binding.pry
     expect(response).to be_a(Hash)
-    expect(response.count).to eq(5)
-    expect(response).to have_key(:photos)
-    expect(response).to have_key(:page)
-    expect(response).to have_key(:per_page)
+    expect(response.count).to eq(3)
+    expect(response).to have_key(:businesses)
+    expect(response).to have_key(:region)
+    expect(response).to have_key(:total)
   end
 end
