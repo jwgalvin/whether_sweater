@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :forecast, only: [:index]
       resources :backgrounds, only: [:index]
       resources :munchies, only: [:index], controller: :yelp
+      resources :users, only: [:create]
     end
   end
 end

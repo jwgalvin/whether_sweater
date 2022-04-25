@@ -8,11 +8,18 @@ RSpec.describe "YelpController" do
     cuisine = 'mexican'
     departure_time = Time.new(2022, 4, 25, 15, 5, 5)
     get "/api/v1/munchies?start=#{start}&destination=#{destination}&food=#{cuisine}"
-
-    expect(response.status).to be_successful
+    data = JSON.parse(response.body, symbolize_names: true)
     #binding.pry
-    expect(response.body).to have_key('data')
-    expect(response.body).to be_a(Hash)
-
+    expect(response.status).to eq(200)
+    expect(data[:data]).to have_key(:id)
+    expect(data[:data]).to have_key(:type)
+    expect(data[:data]).to have_key(:attributes)
+    expect(data[:data][:attributes]).to have_key(:destination_city)
+    expect(data[:data][:attributes]).to have_key(:travel_time)
+    expect(data[:data][:attributes]).to have_key(:forecast)
+    expect(data[:data][:attributes]).to have_key(:restaurant)
+    expect(data[:data][:attributes][:forecast]).to have_key(:temperature)
+    expect(data[:data][:attributes][:forecast]).to have_key(:summary)
+    expect(data[:data][:attributes][:restaurant]).to have_key(:address)
   end
 end
