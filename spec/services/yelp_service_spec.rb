@@ -4,6 +4,7 @@ RSpec.describe YelpService do
   it 'has a response', :vcr do
     response = YelpService.conn
     expect(response).to be_a(Faraday::Connection)
+    #binding.pry
   end
 
   it 'gets a reponse with data I need', :vcr do

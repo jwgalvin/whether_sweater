@@ -6,7 +6,6 @@ RSpec.describe YelpFacade do
     time = Time.new(2022, 4, 25, 15, 5, 5)
     location = "Denver"
     searched = YelpService.yelp_search(cuisine, time, location)
-    #binding.pry
     expect(searched).to be_a(Hash)
     expect(searched[:businesses][0]).to have_key(:name)
     expect(searched[:businesses][0]).to have_key(:image_url)
