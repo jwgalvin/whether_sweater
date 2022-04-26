@@ -56,7 +56,7 @@ RSpec.describe "UsersController" do
     parsed_data = JSON.parse(response.body, symbolize_names: true)
 
     expect(parsed_data[:status]).to eq(400)
-    expect(parsed_data[:message]).to eq("Password digest can't be blank and Password can't be blank")
+    expect(parsed_data[:message]).to eq("Password can't be blank and Password digest can't be blank")
   end
 
   it "sad paths no pw or pw-c provided" do
@@ -72,6 +72,6 @@ RSpec.describe "UsersController" do
     parsed_data = JSON.parse(response.body, symbolize_names: true)
 
     expect(parsed_data[:status]).to eq(400)
-    expect(parsed_data[:message]).to eq("Password digest can't be blank and Password can't be blank")
+    expect(parsed_data[:message]).to eq("Password can't be blank and Password digest can't be blank")
   end
 end
