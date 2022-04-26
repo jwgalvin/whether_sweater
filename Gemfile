@@ -13,6 +13,7 @@ gem 'jsonapi-serializer'
 # gem 'rack-cors'
 
 group :development, :test do
+  gem 'bcrypt', '~> 3.1.7'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'figaro'

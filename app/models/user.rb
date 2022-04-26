@@ -1,10 +1,12 @@
+require 'bcrypt'
 class User < ApplicationRecord
+  has_secure_password
   validates :email,
     :presence => {message: "can't be blank"},
     :uniqueness => true
   validates :password_digest,
     :presence => {message: "can't be blank"}
-  has_secure_password
+
 
   before_create :make_key
 
