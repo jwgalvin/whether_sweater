@@ -36,6 +36,7 @@ RSpec.describe "UsersController" do
 
     post '/api/v1/users', headers: headers, params: user_params.to_json
     parsed_data = JSON.parse(response.body, symbolize_names: true)
+
     expect(parsed_data[:status]).to eq(400)
     expect(parsed_data[:message]).to eq("Email can't be blank")
   end
@@ -53,7 +54,7 @@ RSpec.describe "UsersController" do
 
     post '/api/v1/users', headers: headers, params: user_params.to_json
     parsed_data = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
+
     expect(parsed_data[:status]).to eq(400)
     expect(parsed_data[:message]).to eq("Password digest can't be blank and Password can't be blank")
   end
@@ -69,7 +70,7 @@ RSpec.describe "UsersController" do
 
     post '/api/v1/users', headers: headers, params: user_params.to_json
     parsed_data = JSON.parse(response.body, symbolize_names: true)
-    binding.pry
+
     expect(parsed_data[:status]).to eq(400)
     expect(parsed_data[:message]).to eq("Password digest can't be blank and Password can't be blank")
   end
