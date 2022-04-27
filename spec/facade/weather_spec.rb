@@ -70,7 +70,7 @@ RSpec.describe 'Weather facade' do
 
     facade = WeatherFacade.forecast(@poro)
     #binding.pry
-    expect(facade.current_weather.count).to eq(10)
+    expect(facade.current_weather.count).to eq(9)
     expect(facade.current_weather).to have_key(:datetime)
     expect(facade.current_weather).to have_key(:sunrise)
     expect(facade.current_weather).to have_key(:sunset)
@@ -80,7 +80,6 @@ RSpec.describe 'Weather facade' do
     expect(facade.current_weather).to have_key(:uvi)
     expect(facade.current_weather).to have_key(:visibility)
     expect(facade.current_weather).to have_key(:conditions)
-    expect(facade.current_weather).to have_key(:icon)
   end
 
   it 'has hourly weather keys', :vcr do
@@ -88,14 +87,13 @@ RSpec.describe 'Weather facade' do
     facade = WeatherFacade.forecast(@poro)
     facade.daily_weather.shift(5).each do |day|
       #binding.pry
-      expect(day.count).to eq(7)
+      expect(day.count).to eq(6)
       expect(day).to have_key(:date)
       expect(day).to have_key(:sunrise)
       expect(day).to have_key(:sunset)
       expect(day).to have_key(:max_temp)
       expect(day).to have_key(:min_temp)
       expect(day).to have_key(:conditions)
-      expect(day).to have_key(:icon)
     end
   end
 
@@ -104,11 +102,10 @@ RSpec.describe 'Weather facade' do
     facade = WeatherFacade.forecast(@poro)
     facade.hourly_weather.shift(8).each do |hour|
       #binding.pry
-      expect(hour.count).to eq(4)
+      expect(hour.count).to eq(3)
       expect(hour).to have_key(:time)
       expect(hour).to have_key(:temperature)
       expect(hour).to have_key(:conditions)
-      expect(hour).to have_key(:icon)
     end
   end
 
