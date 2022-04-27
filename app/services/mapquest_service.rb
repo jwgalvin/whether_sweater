@@ -1,13 +1,17 @@
 class MapquestService
   class << self
     def routing(start_address, end_address)
-      response = conn.get("/directions/v2/route?key=#{ENV['mapquest_key']}&from=#{start_address}&to=#{end_address}")
-      parse_data(response)
+      Rails.cache.fetch("route1-#{start_address + end_address}", expires_in: 15.seconds) do
+        response = conn.get("/directions/v2/route?key=#{ENV['mapquest_key']}&from=#{start_address}&to=#{end_address}")
+        parse_data(response)
+      end
     end
 
     def gps(location)
-      response = conn.get("/geocoding/v1/address?location=#{location}")
-      parse_data(response)
+      Rails.cache.fetch("geo1-#{location}", expires_in: 15.seconds) do
+        response = conn.get("/geocoding/v1/address?location=#{location}")
+        parse_data(response)
+      end
     end
 
     private

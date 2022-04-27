@@ -14,7 +14,6 @@ class WeatherForecast
       sunrise: Time.at(data[:sunrise]),
       sunset: Time.at(data[:sunset]),
       conditions: data[:weather].first[:description],
-      icon: data[:weather].first[:icon],
       temperature: data[:temp],
       feels_like: data[:feels_like],
       humidity: data[:humidity],
@@ -29,7 +28,6 @@ class WeatherForecast
         time: Time.at(select[:dt]).strftime('%T'),
         temperature: select[:temp].to_f,
         conditions: select[:weather][0][:description],
-        icon: select[:weather][0][:icon]
       }
     end
   end
@@ -41,7 +39,6 @@ class WeatherForecast
         sunrise: Time.at(today[:sunrise]),
         sunset: Time.at(today[:sunset]),
         conditions: today[:weather][0][:description],
-        icon: today[:weather][0][:icon],
         max_temp: today[:temp][:max],
         min_temp: today[:temp][:min]
         }
