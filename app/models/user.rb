@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
 
   before_create :make_key
-
+#comment
   private
   def make_key
     self.api_key = SecureRandom.hex(10)
